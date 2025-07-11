@@ -1,0 +1,12 @@
+.text-center {
+  text-align: center;
+}
+.letter-spacing-01 {
+  letter-spacing: 0.1rem;
+}
+.bold {
+  font-weight: bold;
+}
+.text-start {
+  text-align: start;
+}

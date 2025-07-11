@@ -4,17 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="spaces.css" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="colors.css" />
+    <link rel="stylesheet" href="flex-box.css" />
     <title>Image Slider</title>
   </head>
   <body>
     <div class="container">
-      <div class="slider">
-        <div class="image-container">
-          <img id="image-placeholder" alt="bird-image" class="image fade-in" />
+      <div class="w-100 text-center pt-2 pb-2 letter-spacing-01 bold">
+        <h1>Image Slider</h1>
+      </div>
+      <div class="w-100 h-100 flex flex-column align-center pt-5">
+        <div class="text-start w-50 pb-5">
+          <h3 class="pb-2">Quick description of the project</h3>
+          <p>
+            This project features a responsive, minimalist slider that cycles
+            through a set of bird images. Using pure HTML, CSS, and JavaScript,
+            I crafted an intuitive layout where the user can navigate forward
+            and backward through the gallery using arrow controls.
+          </p>
+          <p class="pt-1">
+            Each transition between images is enhanced by a soft fade effect,
+            made possible through dynamic class manipulation and smooth CSS
+            opacity transitions. The image is wrapped in a clean container with
+            object-fit styling, ensuring graceful scaling without distortion.
+            Everything’s optimized for both desktop and mobile, keeping the
+            experience fluid no matter the screen size.
+          </p>
         </div>
-        <div class="flex">
-          <div class="arrow" onclick="prev()">﹤</div>
-          <div class="arrow" onclick="next()">﹥</div>
+        <div class="w-50 h-50">
+          <div class="slider">
+            <div class="image-container">
+              <img
+                id="image-placeholder"
+                alt="slider-image"
+                class="image fade-in"
+              />
+            </div>
+            <div class="flex">
+              <div class="arrow" onclick="prev()">﹤</div>
+              <div class="arrow" onclick="next()">﹥</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
