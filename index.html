@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Image Slider</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="slider">
+        <div class="image-container">
+          <img id="image-placeholder" alt="bird-image" class="image fade-in" />
+        </div>
+        <div class="flex">
+          <div class="arrow" onclick="prev()">﹤</div>
+          <div class="arrow" onclick="next()">﹥</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const imagePath = [
+        "./assets/bird1.jpg",
+        "./assets/bird2.jpg",
+        "./assets/bird3.jpg",
+        "./assets/bird4.jpg",
+        "./assets/bird5.jpg",
+      ];
+      let increment = 0;
+      const image = document.getElementById("image-placeholder");
+      const updateImage = () => {
+        image.classList.remove("fade-in");
+        setTimeout(() => {
+          image.src = imagePath[increment];
+          image.classList.add("fade-in");
+        }, 500);
+      };
+      const prev = () => {
+        increment = (increment - 1 + imagePath.length) % imagePath.length;
+        updateImage();
+      };
+
+      const next = () => {
+        increment = (increment + 1) % imagePath.length;
+        updateImage();
+      };
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+      });
+      updateImage();
+    </script>
+  </body>
+</html>
