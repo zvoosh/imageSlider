@@ -17,10 +17,7 @@ A simple image slider (carousel) built using HTML, CSS, and JavaScript.
 
 ## 🖼️ Screenshots
 
-<img src="https://github.com/zvoosh/imageSlider/blob/main/assets/first.png?raw=true" width="300" />
-<img src="https://github.com/zvoosh/imageSlider/blob/main/assets/second.png?raw=true" width="300" />
-<img src="https://github.com/zvoosh/imageSlider/blob/main/assets/third.png?raw=true" width="300" />
-<img src="https://github.com/zvoosh/imageSlider/blob/main/assets/fourth.png?raw=true" width="300" />
+<img src="https://github.com/zvoosh/imageSlider/blob/main/assets/first.png?raw=true" />
 
 ## 📦 How to Use
 
@@ -28,3 +25,10 @@ A simple image slider (carousel) built using HTML, CSS, and JavaScript.
    ```bash
    git clone https://github.com/zvoosh/imageSlider.git
    ```
+2. Open index.html in your browser.
+
+3. Replace images in the assets/ folder with your own if desired.
+
+# Author
+
+Made with ❤️ by zvoosh
