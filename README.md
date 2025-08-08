@@ -2,24 +2,24 @@
 
 A simple image slider (carousel) built using HTML, CSS, and JavaScript.
 
-## 📸 Features
+## Features
 
 - **Smooth sliding transitions**
 - **Responsive layout**
 - **Manual navigation with arrows**
 - **Easy to customize with your own images**
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5**
 - **CSS3**
 - **JavaScript (Vanilla)**
 
-## 🖼️ Screenshots
+## Screenshots
 
 <img src="https://github.com/zvoosh/imageSlider/blob/main/assets/first.png?raw=true" />
 
-## 📦 How to Use
+## How to Use
 
 1. Clone the repo:
    ```bash
