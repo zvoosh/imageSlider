@@ -34,6 +34,9 @@
       let increment = 0;
       const image = document.getElementById("image-placeholder");
       const imageIndex = document.getElementById("imageIndex");
+
+      let autoSlideInterval;
+
       const updateImage = () => {
         image.classList.remove("visible");
 
@@ -49,21 +52,31 @@
           }, 500);
         };
       };
+
+      const resetAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(next, 3000);
+      };
+
       const prev = () => {
         increment = (increment - 1 + imagePath.length) % imagePath.length;
         updateImage();
+        resetAutoSlide();
       };
 
       const next = () => {
         increment = (increment + 1) % imagePath.length;
         updateImage();
+        resetAutoSlide();
       };
 
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") next();
         if (e.key === "ArrowLeft") prev();
       });
+
       updateImage();
+      resetAutoSlide();
     </script>
   </body>
 </html>
