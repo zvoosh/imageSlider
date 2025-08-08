@@ -24,6 +24,7 @@
       </div>
     </div>
     <script>
+      // image array
       const imagePath = [
         "./assets/bird1.jpg",
         "./assets/bird2.jpg",
@@ -31,12 +32,14 @@
         "./assets/bird4.jpg",
         "./assets/bird5.jpg",
       ];
+
+      // initial values
       let increment = 0;
       const image = document.getElementById("image-placeholder");
       const imageIndex = document.getElementById("imageIndex");
-
       let autoSlideInterval;
 
+      // manual updates the image slider
       const updateImage = () => {
         image.classList.remove("visible");
 
@@ -53,28 +56,31 @@
         };
       };
 
+      // cleans and starts the interval
       const resetAutoSlide = () => {
         clearInterval(autoSlideInterval);
         autoSlideInterval = setInterval(next, 3000);
       };
 
+      // makes the slider go to previous image
       const prev = () => {
         increment = (increment - 1 + imagePath.length) % imagePath.length;
         updateImage();
         resetAutoSlide();
       };
-
+      // makes the slider go to next image
       const next = () => {
         increment = (increment + 1) % imagePath.length;
         updateImage();
         resetAutoSlide();
       };
-
+      // includes keyboard arrows as a control for the image slider
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") next();
         if (e.key === "ArrowLeft") prev();
       });
 
+      // initialize the slider functions
       updateImage();
       resetAutoSlide();
     </script>
