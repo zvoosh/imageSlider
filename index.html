@@ -13,18 +13,18 @@
   <body>
     <div class="container">
       <div class="slider">
-          <div class="image-container">
-            <img
-              id="image-placeholder"
-              alt="slider-image"
-              class="image fade-in"
-            />
-          </div>
-          <div class="flex">
-            <div class="arrow" onclick="prev()">﹤</div>
-            <div class="arrow" onclick="next()">﹥</div>
-          </div>
+        <div class="image-container">
+          <img
+            id="image-placeholder"
+            alt="slider-image"
+            class="image fade-in"
+          />
         </div>
+        <div class="flex">
+          <div class="arrow" onclick="prev()">﹤</div>
+          <div class="arrow" onclick="next()">﹥</div>
+        </div>
+      </div>
     </div>
     <script>
       const imagePath = [
@@ -37,11 +37,16 @@
       let increment = 0;
       const image = document.getElementById("image-placeholder");
       const updateImage = () => {
+        if (image.src.endsWith(imagePath[increment])) return;
+
         image.classList.remove("fade-in");
-        setTimeout(() => {
-          image.src = imagePath[increment];
+
+        const tempImg = new Image();
+        tempImg.src = imagePath[increment];
+        tempImg.onload = () => {
+          image.src = tempImg.src;
           image.classList.add("fade-in");
-        }, 500);
+        };
       };
       const prev = () => {
         increment = (increment - 1 + imagePath.length) % imagePath.length;
