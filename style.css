@@ -48,9 +48,8 @@
   align-items: center;
 }
 .image-container {
-  max-width: 75%;
-  min-height: 75%;
-  max-height: 75%;
+  width: 75%;
+  height: 75%;
 }
 .image {
   width: 100%;
