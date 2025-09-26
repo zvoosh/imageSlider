@@ -13,20 +13,18 @@
   <body>
     <div class="container">
       <div class="slider">
-          <div class="image-container">
-            <img
-              id="image-placeholder"
-              alt="slider-image"
-              class="image fade-in"
-            />
-          </div>
-          <div class="flex">
-            <div class="arrow" onclick="prev()">﹤</div>
-            <div class="arrow" onclick="next()">﹥</div>
-          </div>
+        <div class="image-container">
+          <img id="image-placeholder" alt="slider-image" class="image" />
         </div>
+        <div class="flex">
+          <div class="arrow" onclick="prev()">﹤</div>
+          <div class="arrow" id="imageIndex">1</div>
+          <div class="arrow" onclick="next()">﹥</div>
+        </div>
+      </div>
     </div>
     <script>
+      // image array
       const imagePath = [
         "./assets/bird1.jpg",
         "./assets/bird2.jpg",
@@ -34,30 +32,57 @@
         "./assets/bird4.jpg",
         "./assets/bird5.jpg",
       ];
+
+      // initial values
       let increment = 0;
       const image = document.getElementById("image-placeholder");
+      const imageIndex = document.getElementById("imageIndex");
+      let autoSlideInterval;
+
+      // manual updates the image slider
       const updateImage = () => {
-        image.classList.remove("fade-in");
-        setTimeout(() => {
-          image.src = imagePath[increment];
-          image.classList.add("fade-in");
-        }, 500);
+        image.classList.remove("visible");
+
+        imageIndex.innerHTML = increment + 1;
+
+        const tempImg = new Image();
+        tempImg.src = imagePath[increment];
+        tempImg.onload = () => {
+          setTimeout(() => {
+            image.src = tempImg.src;
+
+            image.classList.add("visible");
+          }, 500);
+        };
       };
+
+      // cleans and starts the interval
+      const resetAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(next, 3000);
+      };
+
+      // makes the slider go to previous image
       const prev = () => {
         increment = (increment - 1 + imagePath.length) % imagePath.length;
         updateImage();
+        resetAutoSlide();
       };
-
+      // makes the slider go to next image
       const next = () => {
         increment = (increment + 1) % imagePath.length;
         updateImage();
+        resetAutoSlide();
       };
-
+      // includes keyboard arrows as a control for the image slider
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") next();
         if (e.key === "ArrowLeft") prev();
       });
+
+      // initialize the slider functions
       updateImage();
+      resetAutoSlide();
     </script>
   </body>
 </html>
